@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { WidgetManager, PanelMixin } from "@mapgis/web-app-framework";
+import { PanelMixin } from "@mapgis/web-app-framework";
 import MpPanSpatialMapSideCard from "./SideCard.vue";
 
 export default {
