@@ -1,0 +1,71 @@
+.pan-spatial-map-wrapper {
+  .mapgis-ui-menu-inline-collapsed {
+    width: 48px;
+
+    .mapgis-ui-menu-item,
+    .mapgis-ui-menu-submenu .mapgis-ui-menu-submenu-title {
+      padding: 0 16px !important;
+      // &:hover {
+      //   color: white;
+      // }
+      .mapgis-ui-icon-wrapper {
+        font-size: 16px;
+        & + span {
+          display: inline-block;
+          max-width: 0;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .mapgis-ui-menu-item,
+  .mapgis-ui-menu-submenu .mapgis-ui-menu-submenu-title {
+    .mapgis-ui-icon-wrapper + span {
+      opacity: 1;
+      transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+
+  .mapgis-ui-menu-light {
+    border-right-color: transparent;
+  }
+
+  .mapgis-ui-menu-horizontal {
+    border: none;
+  }
+}
+
+.mapgis-ui-menu-inline-collapsed-tooltip .mapgis-ui-icon-wrapper {
+  display: none;
+}
+
+.mapgis-ui-menu-submenu-popup .mapgis-ui-icon-wrapper > .icon {
+  margin-right: 10px;
+}
+
+.mapgis-ui-layout-sider {
+  // 防止拖动延迟
+  transition: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: fade($text-color, 20%);
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  background: fade($text-color, 10%);
+}
+
+::-webkit-scrollbar-corner {
+  background: fade($text-color, 10%);
+}
