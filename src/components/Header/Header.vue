@@ -6,7 +6,7 @@
       <div class="header-left">
         <slot name="header-left">
           <div :class="['logo', themeMode]">
-            <mapgis-ui-icon :icon="computedAppLogo" class="icon" />
+            <mapgis-ui-icon :icon="appLogo" class="icon" />
             <h1>{{ application.title }}</h1>
             <h2>{{ application.subtitle }}</h2>
           </div>
@@ -38,19 +38,9 @@ export default {
     },
   },
   data() {
-    return {
-      tempbase64: "",
-    };
+    return {}
   },
   computed: {
-    computedAppLogo() {
-      const url = this.appLogo;
-      if (this.appLogo.indexOf("svg+xml") !== -1) {
-        this.getbase64(url);
-        return this.tempbase64;
-      }
-      return this.appLogo;
-    },
     // dark主题下header主色调与light不同
     themeStyle() {
       if (this.application.theme) {
@@ -77,11 +67,6 @@ export default {
     },
   },
   methods: {
-    async getbase64(url) {
-      await window.request({ url, method: "get" }).then((data) => {
-        this.tempbase64 = data;
-      });
-    },
   },
 };
 </script>

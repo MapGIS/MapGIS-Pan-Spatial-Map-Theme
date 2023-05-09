@@ -33,9 +33,7 @@ export default {
     },
   },
   data() {
-    return {
-      tempbase64: "",
-    };
+    return {}
   },
   computed: {
     // dark主题下header主色调与light不同
