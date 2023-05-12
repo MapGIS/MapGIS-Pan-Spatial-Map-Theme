@@ -69,7 +69,6 @@ export default {
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL,
       maxFooterHeight: 0,
       maxSidePanelWidth: 0,
       showSetting: false,
@@ -78,6 +77,9 @@ export default {
   },
   computed: {
     ...mapState("setting", ["hideSetting"]),
+    publicPath() {
+      return this.application.publicPath
+    },
     headerContentComponent() {
       // 根据名称获取组件
       return this.parseContentComponent("header");

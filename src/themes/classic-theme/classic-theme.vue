@@ -77,7 +77,6 @@ export default {
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL,
       maxFooterHeight: 0,
       maxSidePanelWidth: 0,
       showSetting: false,
@@ -89,7 +88,9 @@ export default {
   },
   computed: {
     ...mapState("setting", ["hideSetting"]),
-
+    publicPath() {
+      return this.application.publicPath
+    },
     dataFlowList() {
       return DataFlowList;
     },
@@ -138,8 +139,8 @@ export default {
        * 修改日期：2021/12/30
        */
       const { location } = window;
-      let sprite = `${location.protocol}//${location.host}${process.env.BASE_URL}sprite/sprite`;
-      let glyphs = `${location.protocol}//${location.host}${process.env.BASE_URL}fonts/{fontstack}/{range}.pbf`;
+      let sprite = `${location.protocol}//${location.host}${this.publicPath}sprite/sprite`;
+      let glyphs = `${location.protocol}//${location.host}${this.publicPath}fonts/{fontstack}/{range}.pbf`;
       const { ip, port, spriteUrl } = baseConfigInstance.config;
       if (spriteUrl && spriteUrl.length > 0) {
         sprite = spriteUrl;
