@@ -17,7 +17,10 @@
         mode="inline"
         v-model="selectedKeys"
       >
-        <mapgis-ui-menu-item v-for="widget in widgets" :key="widget.id">
+        <mapgis-ui-menu-item
+          v-for="widget in widgetStructureSider"
+          :key="getWidgetKey(widget)"
+        >
           <mapgis-ui-icon :icon="getWidgetIcon(widget)" class="icon" />
           <span>{{ getWidgetLabel(widget) }}</span>
         </mapgis-ui-menu-item>
@@ -49,6 +52,7 @@ import {
   ThemeContentMixin,
   WidgetManager,
   WidgetState,
+  MultiChildController,
 } from "@mapgis/web-app-framework";
 
 export default {
@@ -98,10 +102,31 @@ export default {
         this.selectedKeys = [];
       }
 
-      const currentWidget = this.widgets.find((widget) => widget.id === key);
+      const currentWidget = this.widgetStructure.find(
+        (widget) => widget.id === key
+      );
 
       if (currentWidget) {
-        WidgetManager.getInstance().triggerWidgetOpen(currentWidget);
+        let activeWidget;
+        if (currentWidget.children && currentWidget.children.length > 0) {
+          MultiChildController.setCurrentTabs(currentWidget.id);
+          activeWidget = this.widgets.find(
+            (widget) =>
+              widget.id === MultiChildController.getCurrentTabs().initKey
+          );
+        } else {
+          activeWidget = this.widgets.find(
+            (widget) => widget.id === currentWidget.id
+          );
+
+          this.widgets.forEach((widget) => {
+            if (widget.id !== currentWidget.id) {
+              WidgetManager.getInstance().closeWidget(widget);
+            }
+          });
+        }
+
+        WidgetManager.getInstance().triggerWidgetOpen(activeWidget);
       }
     },
     onUpdateWidgetState({ widget, newState }) {

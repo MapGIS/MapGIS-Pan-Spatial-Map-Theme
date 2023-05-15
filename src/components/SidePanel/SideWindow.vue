@@ -6,7 +6,7 @@
     v-show="syncedVisible"
   >
     <mapgis-ui-card
-      v-if="component !== 'MpDataCatalog'"
+      v-if="!hasTabs"
       size="small"
       :title="title"
       class="window-wrapper"
@@ -24,7 +24,7 @@
       </div>
     </mapgis-ui-card>
     <mapgis-ui-card
-      v-if="component === 'MpDataCatalog'"
+      v-if="hasTabs"
       size="small"
       :tab-list="tabList"
       class="window-wrapper"
@@ -53,7 +53,6 @@
 
 <script>
 import { mapState } from "vuex";
-import { events, eventBus } from "@mapgis/web-app-framework";
 
 export default {
   name: "MpPanSpatialMapSideWindow",
@@ -72,8 +71,10 @@ export default {
     hasPadding: { type: Boolean, default: true },
     // 最大宽度，支持数值和函数，函数必须返回数值
     maxWidth: { type: [Number, Function] },
-    // 当前组件名称，展示数据目录中收藏夹功能使用该属性
-    component: { type: String, default: "" },
+    // 多tab微件
+    hasTabs: { type: Boolean, default: false },
+    // tab列表
+    tabList: { type: Array, default: () => [] },
   },
   data() {
     return {
@@ -110,18 +111,18 @@ export default {
         padding: this.hasPadding ? "12px" : "0px",
       };
     },
-    tabList() {
-      return [
-        {
-          key: events.DATA_CATALOG_TAB,
-          tab: "数据目录",
-        },
-        {
-          key: events.BOOKMARK_TAB,
-          tab: "收藏夹",
-        },
-      ];
-    },
+    // tabList() {
+    //   return [
+    //     {
+    //       key: events.DATA_CATALOG_TAB,
+    //       tab: "数据目录",
+    //     },
+    //     {
+    //       key: events.BOOKMARK_TAB,
+    //       tab: "收藏夹",
+    //     },
+    //   ];
+    // },
   },
   methods: {
     // 获取地图容器元素
@@ -153,7 +154,8 @@ export default {
       this.syncedVisible = false;
     },
     changeTab(val) {
-      eventBus.$emit(val);
+      // eventBus.$emit(val);
+      this.$emit("changeTab", val);
     },
   },
 };

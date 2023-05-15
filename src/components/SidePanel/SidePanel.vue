@@ -2,13 +2,13 @@
   <div class="mp-side-widget-panel">
     <div :style="{ display: 'inline-block', width: `${stuffWidth}px` }"></div>
     <mp-pan-spatial-map-side-card
-      v-for="widget in widgetsInPanel('content')"
-      :key="widget.uri"
-      :ref="widget.id"
+      v-for="widget in widgetStructureSider"
+      :key="getKey(widget)"
+      :ref="getId(widget)"
       :widget="widget"
       :max-width="maxWidth"
-      :visible="isWidgetVisible(widget, 'content')"
-      @update:visible="updateWidgetVisible($event, widget)"
+      :visible="isWidgetVisible(getWidget(widget), 'content')"
+      @update:visible="updateWidgetVisible($event, getWidget(widget))"
       @update-widget-state="$emit('update-widget-state', $event)"
       :class="{ active: isWidgetActive(widget) }"
       @mousedown.native.capture="onPanelClick(widget)"
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { PanelMixin } from "@mapgis/web-app-framework";
+import { PanelMixin, MultiChildController } from "@mapgis/web-app-framework";
 import MpPanSpatialMapSideCard from "./SideCard.vue";
 
 export default {
@@ -44,11 +44,61 @@ export default {
 
       return 0;
     },
+    getKey() {
+      return (widget) => {
+        return (
+          widget.uri ||
+          (widget.children &&
+            widget.children.length > 0 &&
+            widget.children[0].uri)
+        );
+      };
+    },
+    getId() {
+      return (widget) => {
+        return (
+          widget.id ||
+          (widget.children &&
+            widget.children.length > 0 &&
+            widget.children[0].id)
+        );
+      };
+    },
+    getWidget() {
+      return (widget) => {
+        return widget.children && widget.children.length > 0
+          ? widget.children[0]
+          : widget;
+      };
+    },
   },
   methods: {
     onPanelClick(widget) {
+      if (widget.children && widget.children.length > 0) return;
       this.activateWidget(widget);
     },
+    setMultiChild() {
+      const multiData = [];
+      const multiChild = [];
+      this.widgetStructureSider.forEach((item) => {
+        if (item.children && item.children.length > 0) {
+          const data = {
+            activeKey: item.children[0].id,
+            initKey: item.children[0].id,
+          };
+          const keys = [];
+          item.children.forEach((child) => keys.push(child.id));
+          data[item.id] = keys;
+          multiData.push(data);
+          multiChild.push(item.id);
+        }
+      });
+      MultiChildController.setMultiTabsArr(multiData);
+      MultiChildController.setMultiTabsChildId(multiChild);
+    },
+  },
+  mounted() {
+    this.setMultiChild();
   },
 };
 </script>
