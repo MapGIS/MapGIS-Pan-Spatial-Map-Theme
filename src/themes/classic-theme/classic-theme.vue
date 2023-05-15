@@ -16,6 +16,7 @@
         v-if="maxSidePanelWidth && mapInitialized"
         v-bind="left.panel"
         :widgets="left.widgets"
+        :widgetStructure="left.widgetStructure"
         :max-width="maxSidePanelWidth"
         @update-widget-state="onUpdateWidgetState('left', $event)"
       />
