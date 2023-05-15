@@ -52,81 +52,85 @@ import {
   ThemeContentMixin,
   WidgetManager,
   WidgetState,
-  MultiChildController,
-} from "@mapgis/web-app-framework";
+  MultiChildController
+} from '@mapgis/web-app-framework'
 
 export default {
-  name: "MpPanSpatialMapSideMenu",
+  name: 'MpPanSpatialMapSideMenu',
   mixins: [ThemeContentMixin],
   props: {
     width: {
       type: Number,
-      default: 208,
+      default: 208
     },
     // 是否可收起
     collapsible: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     // 当前收起状态
     collapsed: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     collapsedWidth: {
       type: Number,
-      default: 48,
+      default: 48
     },
     themeMode: {
       type: String,
       required: false,
-      default: "dark",
-    },
+      default: 'dark'
+    }
   },
   data() {
     return {
       collapsedVal: this.collapsed,
-      selectedKeys: [],
-    };
+      selectedKeys: []
+    }
   },
   computed: {
     sideTheme() {
-      return this.themeMode === "technology" ? "dark" : this.themeMode;
-    },
+      return this.themeMode === 'technology' ? 'dark' : this.themeMode
+    }
   },
   methods: {
     onClick({ key }) {
+      debugger
       if (this.selectedKeys[0] === key) {
-        this.selectedKeys = [];
+        this.selectedKeys = []
       }
-
-      const currentWidget = this.widgetStructure.find(
-        (widget) => widget.id === key
-      );
+      let widgetStructure
+      if (this.widgetStructure.length === 0) {
+        widgetStructure = this.widgets
+      } else {
+        widgetStructure = this.widgetStructure
+      }
+      const currentWidget = widgetStructure.find(widget => widget.id === key)
 
       if (currentWidget) {
-        let activeWidget;
+        let activeWidget
         if (currentWidget.children && currentWidget.children.length > 0) {
-          MultiChildController.setCurrentTabs(currentWidget.id);
+          MultiChildController.setCurrentTabs(currentWidget.id)
           activeWidget = this.widgets.find(
-            (widget) =>
+            widget =>
               widget.id === MultiChildController.getCurrentTabs().initKey
-          );
+          )
         } else {
           activeWidget = this.widgets.find(
-            (widget) => widget.id === currentWidget.id
-          );
+            widget => widget.id === currentWidget.id
+          )
 
-          this.widgets.forEach((widget) => {
+          this.widgets.forEach(widget => {
             if (widget.id !== currentWidget.id) {
-              WidgetManager.getInstance().closeWidget(widget);
+              WidgetManager.getInstance().closeWidget(widget)
             }
-          });
+          })
         }
 
-        WidgetManager.getInstance().triggerWidgetOpen(activeWidget);
+        WidgetManager.getInstance().triggerWidgetOpen(activeWidget)
       }
     },
     onUpdateWidgetState({ widget, newState }) {
@@ -134,15 +138,15 @@ export default {
         newState == WidgetState.CLOSED &&
         this.selectedKeys[0] === widget.id
       ) {
-        this.selectedKeys = [];
+        this.selectedKeys = []
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="scss">
-@import "../../index.scss";
+@import '../../index.scss';
 .side-menu-wrapper {
   .mapgis-ui-layout-sider-children {
     display: flex;
