@@ -20,16 +20,16 @@
 </template>
 
 <script>
-import { AppMixin } from "@mapgis/web-app-framework";
+import { AppMixin } from '@mapgis/web-app-framework'
 
 export default {
-  name: "MpPanSpatialMapHeaderDcd",
+  name: 'MpPanSpatialMapHeaderDcd',
   mixins: [AppMixin],
   props: {
     themeMode: {
       type: String,
       required: false,
-      default: "dark",
+      default: 'dark',
     },
   },
   data() {
@@ -43,25 +43,25 @@ export default {
           if (this.application.theme.manifest) {
             const style = this.application.theme.manifest.styles.find(
               (item) => {
-                return item.name === this.application.theme.style;
+                return item.name === this.application.theme.style
               }
-            );
+            )
 
             if (style) {
               return {
                 color: style.color,
                 theme: style.theme,
-              };
+              }
             }
           }
         } else if (this.application.theme.customStyle) {
-          return this.application.theme.customStyle;
+          return this.application.theme.customStyle
         }
       }
-      return { theme: "dark", color: "#1890ff" };
+      return { theme: 'dark', color: '#1890ff' }
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -85,7 +85,7 @@ export default {
     .header-left {
       display: flex;
       min-width: 60%;
-      background-image: url("./top-bg.png");
+      background-image: url('./top-bg.png');
       background-repeat: no-repeat;
       background-size: 100% 100%;
       .logo {

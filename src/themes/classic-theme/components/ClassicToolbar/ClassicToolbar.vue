@@ -80,18 +80,21 @@ export default {
     }
   },
   computed: {
-    ...mapState('setting', { themeMode: (state) => state.theme.mode }),
+    // ...mapState('setting', { themeMode: state => state.theme.mode }),
+    themeMode() {
+      return 'light'
+    },
     currentWidgetStructure() {
       return this.is2DMapMode ? this.widgetStructure2d : this.widgetStructure3d
     },
     currentPopularWidgets() {
-      return this.currentWidgetStructure.filter((widget) => {
+      return this.currentWidgetStructure.filter(widget => {
         const { type = 'widget' } = widget
         return type == 'widget'
       })
     },
     currentNoPopularWidgets() {
-      return this.currentWidgetStructure.filter((widget) => {
+      return this.currentWidgetStructure.filter(widget => {
         const { type = 'widget' } = widget
         return type == 'folder'
       })
@@ -144,7 +147,7 @@ export default {
       )
       if (this.singleWidgetsMode) {
         // 内容区域微件面板的mode属性设为single时启用下方代码
-        this.widgets.forEach((widget) => {
+        this.widgets.forEach(widget => {
           if (WidgetManager.getInstance().isWidgetVisible(widget)) {
             WidgetManager.getInstance().closeWidget(widget)
           }

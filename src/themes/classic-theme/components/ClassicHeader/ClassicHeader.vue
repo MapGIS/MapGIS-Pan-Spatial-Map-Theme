@@ -59,51 +59,54 @@
 </template>
 
 <script>
-import { ThemeContentMixin, WidgetManager } from "@mapgis/web-app-framework";
-import { mapState } from "vuex";
+import { ThemeContentMixin, WidgetManager } from '@mapgis/web-app-framework'
+import { mapState } from 'vuex'
 import {
   MpPanSpatialMapHeader,
-  isExternalLayoutElementComponentExist,
-} from "../../../../components";
+  isExternalLayoutElementComponentExist
+} from '../../../../components'
 
 export default {
-  name: "MpPanSpatialMapClassicHeader",
+  name: 'MpPanSpatialMapClassicHeader',
   components: {
-    MpPanSpatialMapHeader,
+    MpPanSpatialMapHeader
   },
   mixins: [ThemeContentMixin],
   data() {
     return {
-      aboutWindowVisible: false,
-    };
+      aboutWindowVisible: false
+    }
   },
   computed: {
-    ...mapState("setting", { themeMode: (state) => state.theme.mode }),
+    // ...mapState("setting", { themeMode: (state) => state.theme.mode }),
+    themeMode() {
+      return 'light'
+    },
     menuTheme() {
-      return this.themeMode === "technology" ? "dark" : this.themeMode;
+      return this.themeMode === 'technology' ? 'dark' : this.themeMode
     },
     isHeaderAvatarComponentExist() {
       return isExternalLayoutElementComponentExist(
-        "MpPanSpatialMapHeaderAvatar"
-      );
+        'MpPanSpatialMapHeaderAvatar'
+      )
     },
     isAboutComponentExist() {
-      return isExternalLayoutElementComponentExist("MpPanSpatialMapAbout");
-    },
+      return isExternalLayoutElementComponentExist('MpPanSpatialMapAbout')
+    }
   },
   methods: {
     onSelect({ key }) {
       WidgetManager.getInstance().triggerWidgetOpen(
-        this.widgets.find((val) => {
-          return val.id === key;
+        this.widgets.find(val => {
+          return val.id === key
         })
-      );
+      )
     },
     onShowAboutInfo() {
-      this.aboutWindowVisible = true;
-    },
-  },
-};
+      this.aboutWindowVisible = true
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>

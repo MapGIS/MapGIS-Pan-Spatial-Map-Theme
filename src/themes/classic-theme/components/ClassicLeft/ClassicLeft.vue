@@ -21,9 +21,9 @@ export default {
   components: { MpPanSpatialMapSideMenu },
   mixins: [ThemeContentMixin],
   computed: {
-    ...mapState('setting', { themeMode: (state) => state.theme.mode }),
+    // ...mapState('setting', { themeMode: state => state.theme.mode }),
     sideTheme() {
-      return this.themeMode
+      return 'light'
     }
   },
   methods: {
