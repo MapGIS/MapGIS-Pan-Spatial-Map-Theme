@@ -1,7 +1,5 @@
 <template>
-  <mapgis-ui-layout-header
-    :class="[themeMode, 'header-wrapper', `header-wrapper-${themeStyle.theme}`]"
-  >
+  <mapgis-ui-layout-header :class="[themeMode, 'header-wrapper']">
     <div class="header-wide">
       <div class="header-left">
         <slot name="header-left">
@@ -23,19 +21,19 @@
 </template>
 
 <script>
-import { AppMixin } from "@mapgis/web-app-framework";
+import { AppMixin } from '@mapgis/web-app-framework'
 // import { request } from '../../../../pan-spatial-map-framework/src/utils/request'
 // import axios from '../../../../../node_modules/axios'
 
 export default {
-  name: "MpPanSpatialMapHeader",
+  name: 'MpPanSpatialMapHeader',
   mixins: [AppMixin],
   props: {
     themeMode: {
       type: String,
       required: false,
-      default: "dark",
-    },
+      default: 'dark'
+    }
   },
   data() {
     return {}
@@ -46,29 +44,26 @@ export default {
       if (this.application.theme) {
         if (this.application.theme.style) {
           if (this.application.theme.manifest) {
-            const style = this.application.theme.manifest.styles.find(
-              (item) => {
-                return item.name === this.application.theme.style;
-              }
-            );
+            const style = this.application.theme.manifest.styles.find(item => {
+              return item.name === this.application.theme.style
+            })
 
             if (style) {
               return {
                 color: style.color,
-                theme: style.theme,
-              };
+                theme: style.theme
+              }
             }
           }
         } else if (this.application.theme.customStyle) {
-          return this.application.theme.customStyle;
+          return this.application.theme.customStyle
         }
       }
-      return { theme: "dark", color: "#1890ff" };
-    },
+      return { theme: 'dark', color: '#1890ff' }
+    }
   },
-  methods: {
-  },
-};
+  methods: {}
+}
 </script>
 
 <style lang="scss" scoped>
@@ -127,10 +122,6 @@ export default {
     }
   }
 }
-.header-wrapper-dark {
-  color: var(--dark-header-color);
-  background: var(--dark-header-background);
-}
 </style>
 
 <style lang="scss">
@@ -138,7 +129,7 @@ $theme-list: light, dark, night;
 $header-right-background: (
   hover-bg-color-dark: $hover-bg-color-dark,
   hover-bg-color-light: $hover-bg-color-light,
-  hover-bg-color-night: $hover-bg-color-night,
+  hover-bg-color-night: $hover-bg-color-night
 );
 
 .header-wrapper {

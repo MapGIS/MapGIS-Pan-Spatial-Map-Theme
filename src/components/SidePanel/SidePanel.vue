@@ -17,90 +17,90 @@
 </template>
 
 <script>
-import { PanelMixin, MultiChildController } from "@mapgis/web-app-framework";
-import MpPanSpatialMapSideCard from "./SideCard.vue";
+import { PanelMixin, MultiChildController } from '@mapgis/web-app-framework'
+import MpPanSpatialMapSideCard from './SideCard.vue'
 
 export default {
   // 组件名称，统一以"Mp"开头
-  name: "MpPanSpatialMapSidePanel",
+  name: 'MpPanSpatialMapSidePanel',
   components: { MpPanSpatialMapSideCard },
   mixins: [PanelMixin],
   props: {
-    maxWidth: { type: [Number, Function] },
+    maxWidth: { type: [Number, Function] }
   },
   computed: {
     stuffWidth() {
-      const visibleWidget = this.widgets.find((widget) =>
-        this.isWidgetVisible(widget, "content")
-      );
+      const visibleWidget = this.widgets.find(widget =>
+        this.isWidgetVisible(widget, 'content')
+      )
 
       if (
         visibleWidget &&
         this.$refs[visibleWidget.id] &&
         this.$refs[visibleWidget.id][0]
       ) {
-        return this.$refs[visibleWidget.id][0].$refs.sideWindow.currentWidth;
+        return this.$refs[visibleWidget.id][0].$refs.sideWindow.currentWidth
       }
 
-      return 0;
+      return 0
     },
     getKey() {
-      return (widget) => {
+      return widget => {
         return (
           widget.uri ||
           (widget.children &&
             widget.children.length > 0 &&
             widget.children[0].uri)
-        );
-      };
+        )
+      }
     },
     getId() {
-      return (widget) => {
+      return widget => {
         return (
           widget.id ||
           (widget.children &&
             widget.children.length > 0 &&
             widget.children[0].id)
-        );
-      };
+        )
+      }
     },
     getWidget() {
-      return (widget) => {
+      return widget => {
         return widget.children && widget.children.length > 0
           ? widget.children[0]
-          : widget;
-      };
-    },
+          : widget
+      }
+    }
   },
   methods: {
     onPanelClick(widget) {
-      if (widget.children && widget.children.length > 0) return;
-      this.activateWidget(widget);
+      if (widget.children && widget.children.length > 0) return
+      this.activateWidget(widget)
     },
     setMultiChild() {
-      const multiData = [];
-      const multiChild = [];
-      this.widgetStructureSider.forEach((item) => {
+      const multiData = []
+      const multiChild = []
+      this.widgetStructureSider.forEach(item => {
         if (item.children && item.children.length > 0) {
           const data = {
             activeKey: item.children[0].id,
-            initKey: item.children[0].id,
-          };
-          const keys = [];
-          item.children.forEach((child) => keys.push(child.id));
-          data[item.id] = keys;
-          multiData.push(data);
-          multiChild.push(item.id);
+            initKey: item.children[0].id
+          }
+          const keys = []
+          item.children.forEach(child => keys.push(child.id))
+          data[item.id] = keys
+          multiData.push(data)
+          multiChild.push(item.id)
         }
-      });
-      MultiChildController.setMultiTabsArr(multiData);
-      MultiChildController.setMultiTabsChildId(multiChild);
-    },
+      })
+      MultiChildController.setMultiTabsArr(multiData)
+      MultiChildController.setMultiTabsChildId(multiChild)
+    }
   },
   mounted() {
-    this.setMultiChild();
-  },
-};
+    this.setMultiChild()
+  }
+}
 </script>
 
 <style lang="less" scoped>

@@ -93,12 +93,11 @@ export default {
   },
   computed: {
     sideTheme() {
-      return this.themeMode === 'technology' ? 'dark' : this.themeMode
+      return 'light'
     }
   },
   methods: {
     onClick({ key }) {
-      debugger
       if (this.selectedKeys[0] === key) {
         this.selectedKeys = []
       }

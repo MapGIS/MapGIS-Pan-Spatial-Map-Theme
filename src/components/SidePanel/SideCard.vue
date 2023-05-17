@@ -37,90 +37,90 @@
 import {
   WidgetInfoMixin,
   WidgetManager,
-  MultiChildController,
-} from "@mapgis/web-app-framework";
-import MpPanSpatialMapSideWindow from "./SideWindow.vue";
+  MultiChildController
+} from '@mapgis/web-app-framework'
+import MpPanSpatialMapSideWindow from './SideWindow.vue'
 
 export default {
-  name: "MpPanSpatialMapSideCard",
+  name: 'MpPanSpatialMapSideCard',
   components: { MpPanSpatialMapSideWindow },
   mixins: [WidgetInfoMixin],
   props: {
     visible: { type: Boolean, default: true },
-    maxWidth: { type: [Number, Function] },
+    maxWidth: { type: [Number, Function] }
   },
   data() {
     return {
-      multiChildController: MultiChildController,
-    };
+      multiChildController: MultiChildController
+    }
   },
   computed: {
     hasTabs() {
-      return this.widget.children && this.widget.children.length > 0;
+      return this.widget.children && this.widget.children.length > 0
     },
     isFullScreen() {
       // 若有chilren则默认其中第一个微件的配置,下同
-      return (widgetInfo) => {
+      return widgetInfo => {
         return this.hasTabs
-          ? this.widget.children[0].manifest.properties.windowSize === "max"
-          : widgetInfo.properties.windowSize === "max";
-      };
+          ? this.widget.children[0].manifest.properties.windowSize === 'max'
+          : widgetInfo.properties.windowSize === 'max'
+      }
     },
     getWidth() {
-      return (widgetInfo) => {
+      return widgetInfo => {
         return this.hasTabs
           ? this.widget.children[0].manifest.properties.customWidth
-          : widgetInfo.properties.customWidth;
-      };
+          : widgetInfo.properties.customWidth
+      }
     },
     hasPadding() {
-      return (widgetInfo) => {
+      return widgetInfo => {
         return this.hasTabs
           ? this.widget.children[0].manifest.properties.hasPadding
-          : widgetInfo.properties.hasPadding;
-      };
+          : widgetInfo.properties.hasPadding
+      }
     },
     getTabs() {
-      const tabs = [];
+      const tabs = []
       if (this.hasTabs) {
-        this.widget.children.forEach((item) => {
+        this.widget.children.forEach(item => {
           const data = {
             key: item.id,
-            tab: item.manifest.name,
-          };
-          tabs.push(data);
-        });
+            tab: item.manifest.name
+          }
+          tabs.push(data)
+        })
       }
-      return tabs;
+      return tabs
     },
     showActiveWidget() {
-      return (widget) => {
-        return WidgetManager.getInstance().isWidgetActive(widget);
-      };
-    },
+      return widget => {
+        return WidgetManager.getInstance().isWidgetActive(widget)
+      }
+    }
   },
   watch: {
     visible(val) {
       if (val) {
         MultiChildController.isMultiTabsChild(this.widget.id) &&
-          this.changeTab(MultiChildController.getActiveId());
+          this.changeTab(MultiChildController.getActiveId())
       }
-    },
+    }
   },
   methods: {
     onUpdateVisible(value) {
-      this.$emit("update:visible", value);
+      this.$emit('update:visible', value)
     },
 
     changeTab(val) {
-      const widget = this.widget.children.find((item) => item.id === val);
+      const widget = this.widget.children.find(item => item.id === val)
       if (widget) {
-        WidgetManager.getInstance().operateWidget(this.widget.children, val);
-        MultiChildController.setActiveId(widget.id);
+        WidgetManager.getInstance().operateWidget(this.widget.children, val)
+        MultiChildController.setActiveId(widget.id)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped></style>
