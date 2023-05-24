@@ -19,7 +19,7 @@
       >
         <mapgis-ui-menu-item
           v-for="widget in widgetStructureSider"
-          :key="getWidgetKey(widget)"
+          :key="widget.id"
         >
           <mapgis-ui-icon :icon="getWidgetIcon(widget)" class="icon" />
           <span>{{ getWidgetLabel(widget) }}</span>
