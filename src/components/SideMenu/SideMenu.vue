@@ -111,12 +111,22 @@ export default {
 
       if (currentWidget) {
         let activeWidget
-        if (currentWidget.children && currentWidget.children.length > 0) {
+        if (currentWidget.children && currentWidget.children.length > 1) {
           MultiChildController.setCurrentTabs(currentWidget.id)
           activeWidget = this.widgets.find(
             widget =>
               widget.id === MultiChildController.getCurrentTabs().initKey
           )
+        } else if(currentWidget.children && currentWidget.children.length === 1) {
+          const currentWidgetKey = currentWidget.children[0].id
+          activeWidget = this.widgets.find(
+            widget => widget.id === currentWidgetKey
+          )
+          this.widgets.forEach(widget => {
+            if (widget.id !== currentWidgetKey) {
+              WidgetManager.getInstance().closeWidget(widget)
+            }
+          })
         } else {
           activeWidget = this.widgets.find(
             widget => widget.id === currentWidget.id

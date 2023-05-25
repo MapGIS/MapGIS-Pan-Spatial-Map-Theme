@@ -26,11 +26,11 @@ export default {
   components: { MpPanSpatialMapSideCard },
   mixins: [PanelMixin],
   props: {
-    maxWidth: { type: [Number, Function] }
+    maxWidth: { type: [Number, Function] },
   },
   computed: {
     stuffWidth() {
-      const visibleWidget = this.widgets.find(widget =>
+      const visibleWidget = this.widgets.find((widget) =>
         this.isWidgetVisible(widget, 'content')
       )
 
@@ -42,10 +42,14 @@ export default {
         return this.$refs[visibleWidget.id][0].$refs.sideWindow.currentWidth
       }
 
+      if (visibleWidget && MultiChildController.isMultiTabsChild(visibleWidget.id)) {
+        return this.$refs[MultiChildController.getCurrentTabs().folderKey][0].$refs.sideWindow.currentWidth
+      }
+
       return 0
     },
     getKey() {
-      return widget => {
+      return (widget) => {
         return (
           widget.uri ||
           (widget.children &&
@@ -55,7 +59,7 @@ export default {
       }
     },
     getId() {
-      return widget => {
+      return (widget) => {
         return (
           widget.id ||
           (widget.children &&
@@ -65,12 +69,12 @@ export default {
       }
     },
     getWidget() {
-      return widget => {
+      return (widget) => {
         return widget.children && widget.children.length > 0
           ? widget.children[0]
           : widget
       }
-    }
+    },
   },
   methods: {
     onPanelClick(widget) {
@@ -79,27 +83,28 @@ export default {
     },
     setMultiChild() {
       const multiData = []
-      const multiChild = []
-      this.widgetStructureSider.forEach(item => {
+      let multiChild = []
+      this.widgetStructureSider.forEach((item) => {
         if (item.children && item.children.length > 0) {
           const data = {
             activeKey: item.children[0].id,
-            initKey: item.children[0].id
+            initKey: item.children[0].id,
+            folderKey: item.id
           }
           const keys = []
-          item.children.forEach(child => keys.push(child.id))
+          item.children.forEach((child) => keys.push(child.id))
           data[item.id] = keys
           multiData.push(data)
-          multiChild.push(item.id)
+          multiChild = [...multiChild, ...keys]
         }
       })
       MultiChildController.setMultiTabsArr(multiData)
       MultiChildController.setMultiTabsChildId(multiChild)
-    }
+    },
   },
   mounted() {
     this.setMultiChild()
-  }
+  },
 }
 </script>
 
