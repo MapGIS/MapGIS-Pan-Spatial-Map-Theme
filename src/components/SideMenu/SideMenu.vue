@@ -117,6 +117,11 @@ export default {
             widget =>
               widget.id === MultiChildController.getCurrentTabs().initKey
           )
+          this.widgets.forEach(widget => {
+            if (widget.id !== activeWidget.id) {
+              WidgetManager.getInstance().closeWidget(widget)
+            }
+          })
         } else if(currentWidget.children && currentWidget.children.length === 1) {
           const currentWidgetKey = currentWidget.children[0].id
           activeWidget = this.widgets.find(
