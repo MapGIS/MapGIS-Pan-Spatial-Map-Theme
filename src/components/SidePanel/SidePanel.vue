@@ -42,8 +42,12 @@ export default {
         return this.$refs[visibleWidget.id][0].$refs.sideWindow.currentWidth
       }
 
-      if (visibleWidget && MultiChildController.isMultiTabsChild(visibleWidget.id)) {
-        return this.$refs[MultiChildController.getCurrentTabs().folderKey][0].$refs.sideWindow.currentWidth
+      if (
+        visibleWidget &&
+        MultiChildController.isMultiTabsChild(visibleWidget.id)
+      ) {
+        return this.$refs[MultiChildController.getCurrentTabs().folderKey][0]
+          .$refs.sideWindow.currentWidth
       }
 
       return 0
@@ -89,7 +93,7 @@ export default {
           const data = {
             activeKey: item.children[0].id,
             initKey: item.children[0].id,
-            folderKey: item.id
+            folderKey: item.id,
           }
           const keys = []
           item.children.forEach((child) => keys.push(child.id))
