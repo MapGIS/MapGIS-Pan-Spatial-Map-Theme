@@ -60,7 +60,7 @@ import {
   baseConfigInstance,
   ProjectorManager,
   loadConfigs,
-  DataFlowList
+  DataFlowList,
 } from '@mapgis/web-app-framework'
 import { mapState } from 'vuex'
 import MpPanSpatialMapSidePanel from '../../components/SidePanel/SidePanel.vue'
@@ -68,13 +68,13 @@ import MpPanSpatialMapSidePanel from '../../components/SidePanel/SidePanel.vue'
 export default {
   name: 'MpPanSpatialMapClassicTheme',
   components: {
-    MpPanSpatialMapSidePanel
+    MpPanSpatialMapSidePanel,
   },
   mixins: [ThemeMixin],
   props: {
     header: Object,
     toolbar: Object,
-    left: Object
+    left: Object,
   },
   data() {
     return {
@@ -84,7 +84,7 @@ export default {
       configInitialized: false,
       layerId: Number((Math.random() * 100000000).toFixed(0)), // 唯一标识
       layerTitle: '视频投放', // 写成固定值，对应投放管理中下拉框中的名称
-      popupOverlayInstance: null
+      popupOverlayInstance: null,
     }
   },
   computed: {
@@ -146,18 +146,18 @@ export default {
       if (spriteUrl && spriteUrl.length > 0) {
         sprite = spriteUrl
       } else if (ip && ip.length > 0 && port && port.length > 0) {
-        sprite = `http://${ip}:${port}/igs/rest/mrms/vtiles/sprite`
-        glyphs = `http://${ip}:${port}/igs/rest/mrcs/vtiles/fonts/{fontstack}/{range}.pbf`
+        sprite = `${location.protocol}//${ip}:${port}/igs/rest/mrms/vtiles/sprite`
+        glyphs = `${location.protocol}//${ip}:${port}/igs/rest/mrcs/vtiles/fonts/{fontstack}/{range}.pbf`
       }
       return {
         center: { lng: Number(lnglat[0]), lat: Number(lnglat[1]) },
         zoom: baseConfigInstance.config.initZoom,
         mapStyle: {
           sprite,
-          glyphs
-        }
+          glyphs,
+        },
       }
-    }
+    },
   },
   mounted() {
     this.calcMaxFooterHeight()
@@ -198,17 +198,17 @@ export default {
           positionY,
           positionZ,
           hFOV,
-          orientationPitch
+          orientationPitch,
         } = file
         const cameraPosition = {
           x: positionX,
           y: positionY,
-          z: positionZ
+          z: positionZ,
         }
         const Orientation = {
           heading: orientationHeading,
           pitch: orientationPitch,
-          roll: orientationRoll
+          roll: orientationRoll,
         }
 
         ProjectorManager.addProjector(
@@ -243,8 +243,8 @@ export default {
         layerId,
         isProjected
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

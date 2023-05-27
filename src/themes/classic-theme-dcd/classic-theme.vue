@@ -52,12 +52,12 @@ import {
   ThemeMixin,
   baseConfigInstance,
   loadConfigs,
-} from "@mapgis/web-app-framework";
-import { mapState } from "vuex";
-import MpPanSpatialMapSidePanelDcd from "../../components/SidePanel/dcd/SidePanel.vue";
+} from '@mapgis/web-app-framework'
+import { mapState } from 'vuex'
+import MpPanSpatialMapSidePanelDcd from '../../components/SidePanel/dcd/SidePanel.vue'
 
 export default {
-  name: "MpPanSpatialMapClassicThemeDcd",
+  name: 'MpPanSpatialMapClassicThemeDcd',
   components: {
     MpPanSpatialMapSidePanelDcd,
   },
@@ -73,71 +73,71 @@ export default {
       maxSidePanelWidth: 0,
       showSetting: false,
       configInitialized: false,
-    };
+    }
   },
   computed: {
-    ...mapState("setting", ["hideSetting"]),
+    ...mapState('setting', ['hideSetting']),
     publicPath() {
       return this.application.publicPath
     },
     headerContentComponent() {
       // 根据名称获取组件
-      return this.parseContentComponent("header");
+      return this.parseContentComponent('header')
     },
     leftContentComponent() {
-      return this.parseContentComponent("left");
+      return this.parseContentComponent('left')
     },
     rightContentComponent() {
-      return this.parseContentComponent("right");
+      return this.parseContentComponent('right')
     },
     footerContentComponent() {
-      return this.parseContentComponent("footer");
+      return this.parseContentComponent('footer')
     },
     mapOptions() {
-      const lnglat = baseConfigInstance.config.center.split(",");
+      const lnglat = baseConfigInstance.config.center.split(',')
       return {
         center: { lng: Number(lnglat[0]), lat: Number(lnglat[1]) },
         zoom: baseConfigInstance.config.initZoom,
         mapStyle: {
-          glyphs: `http://${baseConfigInstance.config.ip}:${baseConfigInstance.config.port}/igs/rest/mrms/vtiles/fonts/{fontstack}/{range}.pbf`,
+          glyphs: `${location.protocol}//${baseConfigInstance.config.ip}:${baseConfigInstance.config.port}/igs/rest/mrms/vtiles/fonts/{fontstack}/{range}.pbf`,
         },
-      };
+      }
     },
   },
   mounted() {
-    this.calcMaxFooterHeight();
-    this.calcMaxSidePanelWidth();
-    this.watchWindowSize();
+    this.calcMaxFooterHeight()
+    this.calcMaxSidePanelWidth()
+    this.watchWindowSize()
   },
   async created() {
-    await loadConfigs();
-    this.configInitialized = true;
+    await loadConfigs()
+    this.configInitialized = true
   },
   beforeDestroy() {
-    window.onresize = null;
+    window.onresize = null
   },
   methods: {
     calcMaxFooterHeight() {
       this.maxFooterHeight =
-        window.innerHeight - this.$refs.headerContent.$el.offsetHeight;
+        window.innerHeight - this.$refs.headerContent.$el.offsetHeight
     },
     calcMaxSidePanelWidth() {
       this.maxSidePanelWidth =
         this.$refs.bodyContent.$el.clientWidth -
         this.$refs.rightContent.$el.clientWidth -
-        (this.$refs.leftContent ? this.$refs.leftContent.$el.clientWidth : 0);
+        (this.$refs.leftContent ? this.$refs.leftContent.$el.clientWidth : 0)
     },
     watchWindowSize() {
       window.onresize = () => {
-        this.calcMaxFooterHeight();
-        this.calcMaxSidePanelWidth();
-      };
+        this.calcMaxFooterHeight()
+        this.calcMaxSidePanelWidth()
+      }
     },
     onLeftWidthUpdate() {
-      this.calcMaxSidePanelWidth();
+      this.calcMaxSidePanelWidth()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
