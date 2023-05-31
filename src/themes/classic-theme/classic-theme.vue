@@ -124,7 +124,6 @@ export default {
     },
     mapOptions() {
       const lnglat = baseConfigInstance.config.center.split(',')
-      console.log(baseConfigInstance.config)
       /**
        * 修改说明：由于mapboxgl只支持在初始化的时候设置符号库，中途不支持修改。
        * mapboxgl在初始化的时候，还未加载矢量瓦片，无法获取要加载显示的矢量瓦片对应的符号库地址，可能会导致加载的矢量瓦片显示异常（符号不显示）
