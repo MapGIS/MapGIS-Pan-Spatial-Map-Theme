@@ -7,7 +7,7 @@
         mode="horizontal"
         @select="onSelect"
       >
-        <mapgis-ui-menu-item v-for="widget in widgets" :key="widget.id">
+        <mapgis-ui-menu-item v-for="widget in currentWidgets" :key="widget.id">
           <mapgis-ui-icon :icon="getWidgetIcon(widget)" class="icon" />
           <span>{{ getWidgetLabel(widget) }}</span>
         </mapgis-ui-menu-item>
@@ -63,18 +63,18 @@ import { ThemeContentMixin, WidgetManager } from '@mapgis/web-app-framework'
 import { mapState } from 'vuex'
 import {
   MpPanSpatialMapHeader,
-  isExternalLayoutElementComponentExist
+  isExternalLayoutElementComponentExist,
 } from '../../../../components'
 
 export default {
   name: 'MpPanSpatialMapClassicHeader',
   components: {
-    MpPanSpatialMapHeader
+    MpPanSpatialMapHeader,
   },
   mixins: [ThemeContentMixin],
   data() {
     return {
-      aboutWindowVisible: false
+      aboutWindowVisible: false,
     }
   },
   computed: {
@@ -92,20 +92,23 @@ export default {
     },
     isAboutComponentExist() {
       return isExternalLayoutElementComponentExist('MpPanSpatialMapAbout')
-    }
+    },
+    currentWidgets() {
+      return this.is2DMapMode ? this.widgets2d : this.widgets3d
+    },
   },
   methods: {
     onSelect({ key }) {
       WidgetManager.getInstance().triggerWidgetOpen(
-        this.widgets.find(val => {
+        this.widgets.find((val) => {
           return val.id === key
         })
       )
     },
     onShowAboutInfo() {
       this.aboutWindowVisible = true
-    }
-  }
+    },
+  },
 }
 </script>
 
