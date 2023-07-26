@@ -4,8 +4,8 @@
     :collapsible="false"
     :collapsed="true"
     :content="content"
-    :widgets="widgets"
-    :widgetStructure="widgetStructure"
+    :widgets="currentWidgets"
+    :widgetStructure="currentWidgetStructure"
     :panel="panel"
     ref="sideMenu"
   />
@@ -24,13 +24,19 @@ export default {
     // ...mapState('setting', { themeMode: state => state.theme.mode }),
     sideTheme() {
       return 'light'
-    }
+    },
+    currentWidgets() {
+      return this.is2DMapMode ? this.widgets2d : this.widgets3d
+    },
+    currentWidgetStructure() {
+      return this.is2DMapMode ? this.widgetStructure2d : this.widgetStructure3d
+    },
   },
   methods: {
     onUpdateWidgetState(e) {
       this.$refs.sideMenu.onUpdateWidgetState(e)
-    }
-  }
+    },
+  },
 }
 </script>
 
