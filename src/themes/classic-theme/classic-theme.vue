@@ -140,13 +140,10 @@ export default {
        */
       const { location } = window
       let sprite = `${location.protocol}//${location.host}${this.publicPath}sprite/sprite`
-      let glyphs = `${location.protocol}//${location.host}${this.publicPath}fonts/{fontstack}/{range}.pbf`
+      const glyphs = `${location.protocol}//${location.host}${this.publicPath}fonts/{fontstack}/{range}.pbf`
       const { ip, port, spriteUrl } = baseConfigInstance.config
       if (spriteUrl && spriteUrl.length > 0) {
         sprite = spriteUrl
-      } else if (ip && ip.length > 0 && port && port.length > 0) {
-        sprite = `${location.protocol}//${ip}:${port}/igs/rest/mrms/vtiles/sprite`
-        glyphs = `${location.protocol}//${ip}:${port}/igs/rest/mrcs/vtiles/fonts/{fontstack}/{range}.pbf`
       }
       return {
         center: { lng: Number(lnglat[0]), lat: Number(lnglat[1]) },
