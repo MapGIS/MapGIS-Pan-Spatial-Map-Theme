@@ -1311,28 +1311,28 @@
   resolved "https://registry.npmmirror.com/@mapbox/whoots-js/-/whoots-js-3.1.0.tgz#497c67a1cef50d1a2459ba60f315e448d2ad87fe"
   integrity sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==
 
-"@mapgis/cesium@^16.2.0":
-  version "16.2.2"
-  resolved "https://registry.npmmirror.com/@mapgis/cesium/-/cesium-16.2.2.tgz#c6395d5360ca83157794558dd71584fe1355cecd"
-  integrity sha512-284lS8jgtRZ6VHdIQ0TukvlfOefB74tAoRYghswuL30QoljIJO6bTGu4rX3+DFCCCRWzu+s2n0mtAHAFrpOnEw==
+"@mapgis/cesium@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fcesium/-/cesium-16.4.0.tgz#6f1d337cfd86f4a5842a187350fd626327624642"
+  integrity sha512-7+Du2UUjiF/eUt18ts0hgqD2gjNqapxPP5L2qw1MGS4AyYg5+/jS5zRXQWPvUrA5vpHIfPkMn6d5yoJQ0WY4AQ==
 
 "@mapgis/geojson-vt@^3.2.2":
   version "3.2.2"
   resolved "https://registry.npmmirror.com/@mapgis/geojson-vt/-/geojson-vt-3.2.2.tgz#f8f72764fae8907c754bf2df070ec38ca5eb3ad3"
   integrity sha512-DtGQSk3tLhnnPCg18YZMHo6nKW4a5Uj6vWtCiguj0ej4eDApVc4ouu/XFQ78qOaMoXEM98JY6OOkYZMzTFGheg==
 
-"@mapgis/mapbox-gl-compare@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl-compare/-/mapbox-gl-compare-16.2.0.tgz#ef1f3506c2b90b4ad79e9fd9f628f251afd10bfe"
-  integrity sha512-PbYM75DIxSijFgxbH3qFBTBnerjdSDaCpBZ9xaCar7Pc9cVM/NexkoUWip/94tX2V1vUzITquAXAfNb7k4ucVA==
+"@mapgis/mapbox-gl-compare@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl-compare/-/mapbox-gl-compare-16.4.0.tgz#93f64ff4c6f0bd0192c3deef9ea2e4c972a740f7"
+  integrity sha512-NNpvWwSO9UNOZZvHVU4zde483PfCqD1AL5PKH9STi/59R3bZE3TcnKNoQEkqUuTlGVNmUrcGRldUCaQ02xX8Cw==
   dependencies:
     "@mapbox/mapbox-gl-sync-move" "^0.3.0"
     "@mapgis/mapbox-gl-draw" "^16.1.0"
 
-"@mapgis/mapbox-gl-draw-circle@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl-draw-circle/-/mapbox-gl-draw-circle-16.2.0.tgz#47cf2a67b03154f90a398d0b3ea9c4c5c3d83061"
-  integrity sha512-GWvMtUkyjo83m+H7Cx0gg9LVgeEdhPM5kvdqALbe0OziMR0Oq0LcDZXBJ8cyIcPlx6Z2gNqoGpSJrZHfjMw8og==
+"@mapgis/mapbox-gl-draw-circle@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl-draw-circle/-/mapbox-gl-draw-circle-16.4.0.tgz#5c7478fc62f72ae0cf8de6559b8460e774394262"
+  integrity sha512-PgUfSo057ojyb3qKahjm910Q10WGDbwygXtpnwK9jd1ov4kJWotGwuKzDLc1ihus2D+SyGhLncMsnc6DZkoEQw==
   dependencies:
     "@mapgis/mapbox-gl-draw" "^16.1.0"
     "@turf/along" "^6.0.1"
@@ -1341,43 +1341,43 @@
     "@turf/helpers" "^6.1.4"
     "@turf/length" "^6.0.2"
 
-"@mapgis/mapbox-gl-draw-radius@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl-draw-radius/-/mapbox-gl-draw-radius-16.2.0.tgz#02a60d3f42a9d5d383fcb1d205722c39fd65432d"
-  integrity sha512-1fMUs+932SJ7SAkfKH7ec+WXIu31UpZwIgv1RFITDQ2GkQf5o80s4IaLWdCvZm2o0u2Htj4iaMMgoj5ocUTC8w==
+"@mapgis/mapbox-gl-draw-radius@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl-draw-radius/-/mapbox-gl-draw-radius-16.4.0.tgz#5f5597d03375908c70724628daea721177f4774b"
+  integrity sha512-Ev21UtDrmL/6EGfaNNW8nkMwmcMq1YjNW8AKJxXLGY7+HSTE+cEO32FSQwGgNoWj4K6RN2SReg7uIxpuHkL2Pw==
   dependencies:
     "@mapgis/mapbox-gl-draw" "^16.1.0"
     "@turf/length" "^6.3.0"
     lodash "^4.17.21"
     numeral "^2.0.6"
 
-"@mapgis/mapbox-gl-draw-static-mode@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl-draw-static-mode/-/mapbox-gl-draw-static-mode-16.2.0.tgz#d1eb4f8afd8a124351330078abfc804cd0c857fd"
-  integrity sha512-T03pUEwdcuuuiG6VO3PdYTUn12IMyI7IGMl/fz0KyHoTbGNNF0NBvR+u6cec5B/Rl1IxnlsjACX8Rp3WzjtOsw==
+"@mapgis/mapbox-gl-draw-static-mode@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl-draw-static-mode/-/mapbox-gl-draw-static-mode-16.4.0.tgz#505d54a77fb6dac8ac1198a5c97d9e2fec3236f5"
+  integrity sha512-xH2416lXy+LfRHSlBP9f2U/DUeAy0JxmRQormOFNYt4kBxtemEQKQ8ZoNZNuidLm9wFxVhjoqKbAYD3fdGgKKA==
 
-"@mapgis/mapbox-gl-draw@^16.1.0", "@mapgis/mapbox-gl-draw@^16.2.0":
+"@mapgis/mapbox-gl-draw@^16.1.0":
   version "16.2.0"
   resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl-draw/-/mapbox-gl-draw-16.2.0.tgz#29a161cb4be7cd55d951874e35ce814fc78140fa"
   integrity sha512-FGrHoRePXV5wbVrTPKeNoGVPrwk9mubhqx9r0IWm5yeAqOarGRW6XHqr8AVo+TmJ3DIYbbRQzWUxBwCkpOLEfA==
 
-"@mapgis/mapbox-gl-inspect@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl-inspect/-/mapbox-gl-inspect-16.2.0.tgz#f178e8c1538af027ed121337bf2c990204440cb7"
-  integrity sha512-KhFbU6n4+ucVZ30b7jumWfMd1jXnA4JIPGVLpAOjXMY0GgJ0a7pqYFzgZsRmPLhfHMx/+KIdPnuQ0ylVeNxLXg==
+"@mapgis/mapbox-gl-draw@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl-draw/-/mapbox-gl-draw-16.4.0.tgz#53605fc0f92b263bfe48ee53e7fb33445d367299"
+  integrity sha512-pxj1bdoEy7aC+3wkcL8IY8rIKfHpykWN/3O6O6COzVStMSEZrQreNm4XEna5SoevfNzFoxZIipdtowgtlfAcEw==
+
+"@mapgis/mapbox-gl-inspect@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl-inspect/-/mapbox-gl-inspect-16.4.0.tgz#f68853fcb2f441da3985ce4892f59d24567a0814"
+  integrity sha512-HC/dP7Iafg7DW7y4Vnt3h3lEGipYRk9JLqThfpSuUbfRSjoHAmqlhTo/ZOGAuz22VxLxOlvC/9o/K5tB7vk0Aw==
   dependencies:
     lodash.isequal "^4.4.0"
     randomcolor "^0.4.4"
 
-"@mapgis/mapbox-gl@^1.9.7":
-  version "1.9.12"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl/-/mapbox-gl-1.9.12.tgz#187fe752c61eba10c5ffb5e0f36053b628a77c42"
-  integrity sha512-KnmWX0kH/MPkGq1O7RMoQJ+9g4Q8upg/Mz3J4x62sG67vHOspDTYKleayN88gYSPdqAWIzHuSHqKhpi22kVpnw==
-
-"@mapgis/mapbox-gl@^16.0.0", "@mapgis/mapbox-gl@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl/-/mapbox-gl-16.2.0.tgz#a75554c7287b921862568880f008142ef242f042"
-  integrity sha512-+XR7bo+0oe/Eta1TuHjY0gmuTMG7qzZqjbgZq2wgr8xEf0oxT/tomxfsiXf36U/bAvf4HFFCdx4CC5Ex/qjVNg==
+"@mapgis/mapbox-gl@16.4.0", "@mapgis/mapbox-gl@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fmapbox-gl/-/mapbox-gl-16.4.0.tgz#df6f1f7ddc343ea1a9f6d3068fd23dbbaa1a49dc"
+  integrity sha512-luszepWxRE7697MkpQ1263weSzu7gPT1J0QW6z+5EVS8q0zNnVGMPzJnKV8hq/U4wejvCgKZOkSel3KqkMbuvA==
   dependencies:
     "@mapbox/geojson-rewind" "^0.5.0"
     "@mapbox/geojson-types" "^1.0.2"
@@ -1406,6 +1406,11 @@
     tinyqueue "^2.0.3"
     vt-pbf "^3.1.1"
 
+"@mapgis/mapbox-gl@^1.9.7":
+  version "1.9.12"
+  resolved "https://registry.npmmirror.com/@mapgis/mapbox-gl/-/mapbox-gl-1.9.12.tgz#187fe752c61eba10c5ffb5e0f36053b628a77c42"
+  integrity sha512-KnmWX0kH/MPkGq1O7RMoQJ+9g4Q8upg/Mz3J4x62sG67vHOspDTYKleayN88gYSPdqAWIzHuSHqKhpi22kVpnw==
+
 "@mapgis/supercluster@^16.0.0":
   version "16.0.0"
   resolved "https://registry.npmmirror.com/@mapgis/supercluster/-/supercluster-16.0.0.tgz#e0605328f59712afe175764a377e2553850b950c"
@@ -1413,25 +1418,45 @@
   dependencies:
     kdbush "^3.0.0"
 
-"@mapgis/web-app-framework@link:../MapGIS-Web-App-Framework":
-  version "0.0.0"
-  uid ""
-
-"@mapgis/webclient-es6-mapboxgl@^16.0.0", "@mapgis/webclient-es6-mapboxgl@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/webclient-es6-mapboxgl/-/webclient-es6-mapboxgl-16.2.0.tgz#1d86efd0ee19e309d89080f87d5120504dd533d8"
-  integrity sha512-Sj1cNMJV9ANaszw4Oh2SbrCLie1UDhgWLphZr/uHwu3uCRBGGqs8jlQxuLguA2zZozTWerWxJiLCKv77aH7wbQ==
+"@mapgis/web-app-framework@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fweb-app-framework/-/web-app-framework-16.4.0.tgz#77abe059562c9a1d490e628bfccde7b69dc9eb95"
+  integrity sha512-gxDQv0/rMrz+j83FwxuHN2ZOc+r2CwwvyTQUmRz1+bk50SIq3qOcvfgKi/2WfBORhAO4zjwSGpPKHVGon/ULsQ==
   dependencies:
-    "@mapgis/mapbox-gl" "^16.2.0"
-    "@mapgis/webclient-es6-service" "^16.2.0"
+    "@mapgis/mapbox-gl" "~16.4.0"
+    "@mapgis/webclient-es6-mapboxgl" "~16.4.0"
+    "@mapgis/webclient-es6-service" "~16.4.0"
+    "@mapgis/webclient-vue-cesium" "~16.4.0"
+    "@mapgis/webclient-vue-mapboxgl" "~16.4.0"
+    "@mapgis/webclient-vue-ui" "~16.4.0"
+    ant-design-vue "1.7.2"
+    codemirror "^5.49.2"
+    element-resize-detector "^1.2.1"
+    jsdoc "3.6.3"
+    json2csv "^5.0.6"
+    jsonlint "1.6.3"
+    pannellum "^2.5.6"
+    three "^0.130.1"
+    vue "2.6.14"
+    vue-color "^2.8.1"
+    vue-server-renderer "2.6.14"
+    vuedraggable "^2.23.2"
+
+"@mapgis/webclient-es6-mapboxgl@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fwebclient-es6-mapboxgl/-/webclient-es6-mapboxgl-16.4.0.tgz#ae42f13efcfe443763f1c044f7f169829740dcc2"
+  integrity sha512-LIOeZLp1T85WRsfRIDXPb0xklezMVcWGWSa8n7pl/a8v3RZmtva28WLoQgE9nW3e7Y1dTs9H4EfDFz4+cFIL1g==
+  dependencies:
+    "@mapgis/mapbox-gl" "16.4.0"
+    "@mapgis/webclient-es6-service" "16.4.0"
     core-js "^3.21.1"
     echarts "^4.8.0"
     mapv "^2.0.56"
 
-"@mapgis/webclient-es6-service@^16.0.0", "@mapgis/webclient-es6-service@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/webclient-es6-service/-/webclient-es6-service-16.2.0.tgz#d68ea9bdd7845bd346c537a28ce9ffb87612cc25"
-  integrity sha512-DltkokWXbWkggA2ytJjRtfAXeZkTu5VtGrTJles8zIPRnSGhAXPa0WbjBZ7P5KWRHp9Rv60iHcQ5Ko8QX+iDvQ==
+"@mapgis/webclient-es6-service@16.4.0", "@mapgis/webclient-es6-service@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fwebclient-es6-service/-/webclient-es6-service-16.4.0.tgz#89bfc52122a9b740ba49996f334da4e40cc8d5c1"
+  integrity sha512-XAyACFoIw2i0hGa8a57qbMboe0xiZDYXal4jCQw+XBQpiuQXBhwXUP9bRcQpCB8mvAQ9qgVkDn2c+auhrYvwNA==
   dependencies:
     "@turf/turf" "^6.5.0"
     axios "^0.26.0"
@@ -1443,10 +1468,10 @@
     qs "^6.9.4"
     svg-pathdata "^6.0.0"
 
-"@mapgis/webclient-plot@^16.2.0":
-  version "16.2.0"
-  resolved "https://registry.npmmirror.com/@mapgis/webclient-plot/-/webclient-plot-16.2.0.tgz#0776952a68c391d333b067a4250cdb5690ddb9cf"
-  integrity sha512-Ii21dG14RZyGlyy9tErl7WhsZ65lLmUJEMUrvPq1UUn7OplVgZa17GOOx4+yPJQ2ONpRmvWgCxhZanUC20o8bQ==
+"@mapgis/webclient-plot@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fwebclient-plot/-/webclient-plot-16.4.0.tgz#d0519a325ccbe0da232985b9c0ac2ef9ac2ceea4"
+  integrity sha512-MqAyCODuDArlgFhrbkSpv4OEtE2uAl1sTNOfuLv+g+lVIdadOnI2F1x5Tpcs5R8JJOtxEfSJyInV9e1E1OPSdQ==
   dependencies:
     "@turf/turf" "^6.3.0"
     axios "^0.18.0"
@@ -1481,19 +1506,19 @@
     vuepress "^1.3.1"
     webpack-bundle-analyzer "^4.4.0"
 
-"@mapgis/webclient-vue-cesium@^16.0.0":
-  version "16.2.1"
-  resolved "https://registry.npmmirror.com/@mapgis/webclient-vue-cesium/-/webclient-vue-cesium-16.2.1.tgz#7c151dc4341a301b83bf6b58c351eb431f6243ea"
-  integrity sha512-TZ7N+x7jLqN9/HJD5inxpZcFfKMZwNUfcHGXOCxefHfp19gsOQuoVhV3o4zKyM6qsoef1eCUVDI1uENwnE8WSA==
+"@mapgis/webclient-vue-cesium@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fwebclient-vue-cesium/-/webclient-vue-cesium-16.4.0.tgz#8f5b187af78b020548beb29489e80944a8749b72"
+  integrity sha512-9iMeisy4Vespn9OZk8VWy5QGWqZ9/APPZdg0OKK7osEyYoybcKbTRzgHVpZvIr0gHAK3HkkvFW3CnMRy7SamGA==
   dependencies:
     "@antv/g6" "3.1.1"
     "@antv/hierarchy" "^0.6.8"
     "@mapbox/mapbox-gl-style-spec" "13.23.1"
-    "@mapgis/cesium" "^16.2.0"
-    "@mapgis/webclient-es6-service" "^16.2.0"
-    "@mapgis/webclient-plot" "^16.2.0"
+    "@mapgis/cesium" "~16.4.0"
+    "@mapgis/webclient-es6-service" "~16.4.0"
+    "@mapgis/webclient-plot" "~16.4.0"
     "@mapgis/webclient-store" "^10.5.5"
-    "@mapgis/webclient-vue-ui" "^16.2.0"
+    "@mapgis/webclient-vue-ui" "~16.4.0"
     "@turf/turf" "^5.1.6"
     "@vuepress/plugin-active-header-links" "^1.7.1"
     "@vuepress/plugin-nprogress" "^1.7.1"
@@ -1519,23 +1544,23 @@
     wangeditor-antd "^1.0.7"
     webfont-matcher "1.1.0"
 
-"@mapgis/webclient-vue-mapboxgl@^16.0.0":
-  version "16.2.1"
-  resolved "https://registry.npmmirror.com/@mapgis/webclient-vue-mapboxgl/-/webclient-vue-mapboxgl-16.2.1.tgz#267ce5ca71bb5eaef0c4ad457f373c643af7a734"
-  integrity sha512-0oLL/vHM3+1THm5js3cu3W6yZk7+FpYumozkTr983AbNi6EmZ5wrvqUAz+1YUT6MEeS866G8LW/gaqRFYae3Mw==
+"@mapgis/webclient-vue-mapboxgl@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fwebclient-vue-mapboxgl/-/webclient-vue-mapboxgl-16.4.0.tgz#57d71b324789d6d4a5d7e7cf0574241f86c9f6dc"
+  integrity sha512-DizGMeuZbVnpoOsNteXleUdSlz1aBXlU52Wjo8B4VRvd5hlUBZRkrsbmG1t4xiBwT194uiISfBT957pZ/NK07w==
   dependencies:
-    "@mapgis/mapbox-gl" "^16.2.0"
-    "@mapgis/mapbox-gl-compare" "^16.2.0"
-    "@mapgis/mapbox-gl-draw" "^16.2.0"
-    "@mapgis/mapbox-gl-draw-circle" "^16.2.0"
-    "@mapgis/mapbox-gl-draw-radius" "^16.2.0"
-    "@mapgis/mapbox-gl-draw-static-mode" "^16.2.0"
-    "@mapgis/mapbox-gl-inspect" "^16.2.0"
-    "@mapgis/webclient-es6-mapboxgl" "^16.2.0"
-    "@mapgis/webclient-es6-service" "^16.2.0"
-    "@mapgis/webclient-plot" "^16.2.0"
+    "@mapgis/mapbox-gl" "~16.4.0"
+    "@mapgis/mapbox-gl-compare" "~16.4.0"
+    "@mapgis/mapbox-gl-draw" "~16.4.0"
+    "@mapgis/mapbox-gl-draw-circle" "~16.4.0"
+    "@mapgis/mapbox-gl-draw-radius" "~16.4.0"
+    "@mapgis/mapbox-gl-draw-static-mode" "~16.4.0"
+    "@mapgis/mapbox-gl-inspect" "~16.4.0"
+    "@mapgis/webclient-es6-mapboxgl" "~16.4.0"
+    "@mapgis/webclient-es6-service" "~16.4.0"
+    "@mapgis/webclient-plot" "~16.4.0"
     "@mapgis/webclient-store" "^10.5.5"
-    "@mapgis/webclient-vue-ui" "^16.2.0"
+    "@mapgis/webclient-vue-ui" "~16.4.0"
     "@turf/turf" "^6.5.0"
     echarts "^5.3.0"
     file-saver "^2.0.5"
@@ -1555,13 +1580,13 @@
     vue-runtime-helpers "^1.1.2"
     vuepress "^1.9.7"
 
-"@mapgis/webclient-vue-ui@^16.0.0", "@mapgis/webclient-vue-ui@^16.2.0":
-  version "16.2.1"
-  resolved "https://registry.npmmirror.com/@mapgis/webclient-vue-ui/-/webclient-vue-ui-16.2.1.tgz#a15b7d349e1da737832291c380f0bf8584daa442"
-  integrity sha512-3t3e0nTwNrsuClBSzPb81RXAHRZpj7+VA44Fze64GTSFMXtE1lok9fpE5v2GLfOiWVlDehUnOLI33+WkmNbpwQ==
+"@mapgis/webclient-vue-ui@~16.4.0":
+  version "16.4.0"
+  resolved "http://192.168.11.130:4873/@mapgis%2fwebclient-vue-ui/-/webclient-vue-ui-16.4.0.tgz#ea035c3b235aa8aa75998019f90c49080bbb6ef4"
+  integrity sha512-/4uHa9DUwIxakMxV8cPdKtAJwLOHfzTC9OCrr2xfCi6ycCOTs3qpzJpOVTQDqPX8vTW8DbfeAYv8m16z70SiBQ==
   dependencies:
     "@ant-design/icons" "2.1.1"
-    "@mapgis/webclient-es6-service" "^16.2.0"
+    "@mapgis/webclient-es6-service" "~16.4.0"
     "@mapgis/webclient-store" "^10.5.5"
     "@vue/composition-api" "^1.0.0-rc.13"
     "@vuepress/plugin-active-header-links" "^1.8.2"
