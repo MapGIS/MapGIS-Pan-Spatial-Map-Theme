@@ -28,18 +28,6 @@ export default {
   props: {
     maxWidth: { type: [Number, Function] },
   },
-  watch: {
-    stuffWidth: {
-      immediate: true,
-      handler() {
-        // 控制罗盘随左侧微件内容面板宽度改变而改变
-        const compassDiv = document.querySelector('.compass')
-        if (compassDiv) {
-          compassDiv.style.left = `${this.stuffWidth + 45}px`
-        }
-      },
-    },
-  },
   computed: {
     stuffWidth() {
       const visibleWidget = this.widgets.find((widget) =>
