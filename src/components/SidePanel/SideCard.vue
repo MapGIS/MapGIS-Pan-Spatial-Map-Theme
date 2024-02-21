@@ -15,6 +15,7 @@
   >
     <template v-if="!hasTabs">
       <component
+        v-if="!needLoadScript"
         :is="getComponent(widget)"
         :widget="getWidget(widget)"
         @update-widget-state="$emit('update-widget-state', $event)"
@@ -31,6 +32,7 @@
       /> -->
       <keep-alive>
         <component
+          v-if="!needLoadScript"
           :is="getActiveComponent"
           :key="getActiveKey"
           :widget="getActiveWidget"
@@ -46,6 +48,7 @@ import {
   WidgetInfoMixin,
   WidgetManager,
   MultiChildController,
+  AppLoadScript,
 } from '@mapgis/web-app-framework'
 import MpPanSpatialMapSideWindow from './SideWindow.vue'
 
@@ -61,6 +64,7 @@ export default {
     return {
       multiChildController: MultiChildController,
       activeWidget: null,
+      needLoadScript: true,
     }
   },
   computed: {
@@ -153,6 +157,16 @@ export default {
         })
       }
     },
+  },
+  created() {
+    AppLoadScript.loadWidgetScript(this.widgetInfo, this.appAssetsUrl)
+      .then(() => {
+        this.needLoadScript = false
+      })
+      .catch((e) => {
+        console.warn(`加载${this.widgetInfo.uri}所需的脚本文件失败`)
+        this.needLoadScript = false
+      })
   },
   mounted() {
     if (
