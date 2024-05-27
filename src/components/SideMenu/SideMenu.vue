@@ -52,7 +52,7 @@ import {
   ThemeContentMixin,
   WidgetManager,
   WidgetState,
-  MultiChildController
+  MultiChildController,
 } from '@mapgis/web-app-framework'
 
 export default {
@@ -61,40 +61,40 @@ export default {
   props: {
     width: {
       type: Number,
-      default: 208
+      default: 208,
     },
     // 是否可收起
     collapsible: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     // 当前收起状态
     collapsed: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     collapsedWidth: {
       type: Number,
-      default: 48
+      default: 48,
     },
     themeMode: {
       type: String,
       required: false,
-      default: 'dark'
-    }
+      default: 'dark',
+    },
   },
   data() {
     return {
       collapsedVal: this.collapsed,
-      selectedKeys: []
+      selectedKeys: [],
     }
   },
   computed: {
     sideTheme() {
       return 'light'
-    }
+    },
   },
   methods: {
     onClick({ key }) {
@@ -107,39 +107,42 @@ export default {
       } else {
         widgetStructure = this.widgetStructure
       }
-      const currentWidget = widgetStructure.find(widget => widget.id === key)
+      const currentWidget = widgetStructure.find((widget) => widget.id === key)
 
       if (currentWidget) {
         let activeWidget
         if (currentWidget.children && currentWidget.children.length > 1) {
           MultiChildController.setCurrentTabs(currentWidget.id)
           activeWidget = this.widgets.find(
-            widget =>
+            (widget) =>
               widget.id === MultiChildController.getCurrentTabs().initKey
           )
-          this.widgets.forEach(widget => {
+          this.widgets.forEach((widget) => {
             if (widget.id !== activeWidget.id) {
               WidgetManager.getInstance().closeWidget(widget)
             }
           })
-        } else if(currentWidget.children && currentWidget.children.length === 1) {
+        } else if (
+          currentWidget.children &&
+          currentWidget.children.length === 1
+        ) {
           const currentWidgetKey = currentWidget.children[0].id
           activeWidget = this.widgets.find(
-            widget => widget.id === currentWidgetKey
+            (widget) => widget.id === currentWidgetKey
           )
-          this.widgets.forEach(widget => {
+          this.widgets.forEach((widget) => {
             if (widget.id !== currentWidgetKey) {
               WidgetManager.getInstance().closeWidget(widget)
             }
           })
         } else {
           activeWidget = this.widgets.find(
-            widget => widget.id === currentWidget.id
+            (widget) => widget.id === currentWidget.id
           )
 
-          this.widgets.forEach(widget => {
+          this.widgets.forEach((widget) => {
             if (widget.id !== currentWidget.id) {
-              WidgetManager.getInstance().closeWidget(widget)
+              WidgetManager.getInstance().beforeCloseWidget(widget)
             }
           })
         }
@@ -154,8 +157,8 @@ export default {
       ) {
         this.selectedKeys = []
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
