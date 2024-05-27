@@ -48,6 +48,8 @@
         :getProjectorStatus="getProjectorStatus"
         :minimumLevel="minimumLevel"
         :maximumLevel="maximumLevel"
+        :viewMinZoom="minimumLevel"
+        :viewMaxZoom="maximumLevel"
         @project-screen="handleProjectScreen"
       />
     </mapgis-ui-layout>
