@@ -58,13 +58,13 @@
 
 <script>
 import {
-  ThemeMixin,
-  baseConfigInstance,
   ProjectorManager,
   loadConfigs,
   DataFlowList,
+  baseConfigInstance,
+  ThemeMixin,
 } from '@mapgis/web-app-framework'
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 import MpPanSpatialMapSidePanel from '../../components/SidePanel/SidePanel.vue'
 
 export default {
@@ -90,9 +90,11 @@ export default {
     }
   },
   computed: {
-    ...mapState('setting', ['hideSetting']),
+    // ...mapState('setting', ['hideSetting']),
     publicPath() {
-      return this.application.publicPath
+      return this.isDefaultAppProductName
+        ? this.application.publicPath
+        : this.application.publicPath.replace('psmap', this.appProductName)
     },
     dataFlowList() {
       return DataFlowList
