@@ -1,6 +1,6 @@
 {
   "name": "@mapgis/mapgis-pan-spatial-map-theme",
-  "version": "16.8.1",
+  "version": "16.8.2",
   "main": "dist-libs/mapgis-pan-spatial-map-theme.umd.min.js",
   "module1": "src/index.js",
   "scripts": {
