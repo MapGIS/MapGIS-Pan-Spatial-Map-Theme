@@ -92,9 +92,7 @@ export default {
   computed: {
     // ...mapState('setting', ['hideSetting']),
     publicPath() {
-      return this.isDefaultAppProductName
-        ? this.application.publicPath
-        : this.application.publicPath.replace('psmap', this.appProductName)
+      return this.application.publicPath
     },
     dataFlowList() {
       return DataFlowList
