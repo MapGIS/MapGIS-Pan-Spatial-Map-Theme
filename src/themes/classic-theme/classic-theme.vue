@@ -48,6 +48,8 @@
         :getProjectorStatus="getProjectorStatus"
         :minimumLevel="minimumLevel"
         :maximumLevel="maximumLevel"
+        :viewMinZoom="minimumLevel"
+        :viewMaxZoom="maximumLevel"
         @project-screen="handleProjectScreen"
       />
     </mapgis-ui-layout>
@@ -56,13 +58,13 @@
 
 <script>
 import {
-  ThemeMixin,
-  baseConfigInstance,
   ProjectorManager,
   loadConfigs,
   DataFlowList,
+  baseConfigInstance,
+  ThemeMixin,
 } from '@mapgis/web-app-framework'
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 import MpPanSpatialMapSidePanel from '../../components/SidePanel/SidePanel.vue'
 
 export default {
@@ -88,7 +90,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('setting', ['hideSetting']),
+    // ...mapState('setting', ['hideSetting']),
     publicPath() {
       return this.application.publicPath
     },
