@@ -4342,7 +4342,7 @@
 
 "@vue/vue-loader-v15@npm:vue-loader@^15.9.7":
   version "15.10.1"
-  resolved "http://192.168.11.130:4873/vue-loader/-/vue-loader-15.10.1.tgz#c451c4cd05a911aae7b5dbbbc09fb913fb3cca18"
+  resolved "https://registry.npmmirror.com/vue-loader/-/vue-loader-15.10.1.tgz#c451c4cd05a911aae7b5dbbbc09fb913fb3cca18"
   integrity sha512-SaPHK1A01VrNthlix6h1hq4uJu7S/z0kdLUb6klubo738NeQoLbS6V9/d8Pv19tU0XdQKju3D1HSKuI8wJ5wMA==
   dependencies:
     "@vue/component-compiler-utils" "^3.1.0"
@@ -7401,7 +7401,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
 
 debug@^3.2.7:
   version "3.2.7"
-  resolved "http://192.168.11.130:4873/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
+  resolved "https://registry.npmmirror.com/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
@@ -11747,7 +11747,7 @@ mz@^2.4.0:
 
 nan@^2.12.1, nan@^2.13.2:
   version "2.17.0"
-  resolved "http://192.168.11.130:4873/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
+  resolved "https://registry.npmmirror.com/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
   integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==
 
 nanoid@^3.3.6:
@@ -15314,7 +15314,7 @@ tar@^2.0.0:
 
 tar@^6.0.2:
   version "6.1.15"
-  resolved "http://192.168.11.130:4873/tar/-/tar-6.1.15.tgz#c9738b0b98845a3b344d334b8fa3041aaba53a69"
+  resolved "https://registry.npmmirror.com/tar/-/tar-6.1.15.tgz#c9738b0b98845a3b344d334b8fa3041aaba53a69"
   integrity sha512-/zKt9UyngnxIT/EAGYuxaMYgOIJiP81ab9ZfkILq4oNLPFX50qyYmu7jRj9qeXoxmJHjGlbH0+cm2uy1WCs10A==
   dependencies:
     chownr "^2.0.0"
@@ -16374,7 +16374,7 @@ vue-infinite-scroll@^2.0.2:
 
 vue-loader@^15.7.1:
   version "15.10.1"
-  resolved "http://192.168.11.130:4873/vue-loader/-/vue-loader-15.10.1.tgz#c451c4cd05a911aae7b5dbbbc09fb913fb3cca18"
+  resolved "https://registry.npmmirror.com/vue-loader/-/vue-loader-15.10.1.tgz#c451c4cd05a911aae7b5dbbbc09fb913fb3cca18"
   integrity sha512-SaPHK1A01VrNthlix6h1hq4uJu7S/z0kdLUb6klubo738NeQoLbS6V9/d8Pv19tU0XdQKju3D1HSKuI8wJ5wMA==
   dependencies:
     "@vue/component-compiler-utils" "^3.1.0"
