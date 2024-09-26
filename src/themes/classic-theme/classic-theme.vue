@@ -40,6 +40,7 @@
         class="map-wrapper"
         :dataFlowList="dataFlowList"
         :cesium-lib-path="publicPath + 'cesium/Cesium.js'"
+        :netCDFPath="publicPath + 'netcdf/netcdfjs.min.js'"
         :cesium-plugin-path="publicPath + 'cesium/webclient-cesium-plugin.js'"
         :map-options="mapOptions"
         :popupShowType="popupShowType"
